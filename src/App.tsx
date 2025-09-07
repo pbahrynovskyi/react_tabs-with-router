@@ -5,28 +5,31 @@ import './App.scss';
 
 export const App = () => {
   const location = useLocation();
-  const currentPath = location.pathname;
 
   return (
     <>
+      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link
-              to="/"
-              className={`navbar-item${currentPath === '/' ? ' is-active' : ''}`}
-            >
-              Home
-            </Link>
-            <Link
-              to="/tabs"
+            <div className={location.pathname === '/' ? 'is-active' : ''}>
+              <Link
+                to="/"
+                className={`navbar-item${location.pathname === '/' ? ' is-active' : ''}`}
+              >
+                Home
+              </Link>
+            </div>
+            <div
               className={`navbar-item${location.pathname.startsWith('/tabs') ? ' is-active' : ''}`}
             >
-              Tabs
-            </Link>
+              <Link to="/tabs" className="navbar-item">
+                Tabs
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
