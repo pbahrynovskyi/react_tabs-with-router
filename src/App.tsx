@@ -8,28 +8,24 @@ export const App = () => {
 
   return (
     <>
-      {/* Also requires <html class="has-navbar-fixed-top"> */}
       <nav
         className="navbar is-light is-fixed-top is-mobile has-shadow"
         data-cy="Nav"
       >
         <div className="container">
           <div className="navbar-brand">
-            <div className={location.pathname === '/' ? 'is-active' : ''}>
-              <Link
-                to="/"
-                className={`navbar-item${location.pathname === '/' ? ' is-active' : ''}`}
-              >
-                Home
-              </Link>
-            </div>
-            <div
+            <Link
+              to="/"
+              className={`navbar-item${location.pathname === '/' ? ' is-active' : ''}`}
+            >
+              Home
+            </Link>
+            <Link
+              to="/tabs"
               className={`navbar-item${location.pathname.startsWith('/tabs') ? ' is-active' : ''}`}
             >
-              <Link to="/tabs" className="navbar-item">
-                Tabs
-              </Link>
-            </div>
+              Tabs
+            </Link>
           </div>
         </div>
       </nav>
